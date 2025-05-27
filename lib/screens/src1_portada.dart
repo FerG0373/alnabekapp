@@ -1,3 +1,5 @@
+import 'package:alnabekapp/components/app_buttons.dart';
+import 'package:alnabekapp/res/app_images.dart';
 import 'package:flutter/material.dart';
 
 class Portada extends StatelessWidget {
@@ -13,29 +15,14 @@ class Portada extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/img/portada.png'),
+                image: AssetImage(AppImages.portada),
                 fit: BoxFit.fill,
               ),
             ),
           ),
 
           // Botón
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 60),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/login');
-                    },
-                    child: const Text("Ingresar")
-                  ),
-                ],
-              ),
-            ),
-          ),
+          AppButtons.ingresarBotonPortada(context),
         ],
       ),
     );
