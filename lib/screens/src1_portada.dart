@@ -1,6 +1,6 @@
-import 'package:alnabekapp/components/app_buttons.dart';
-import 'package:alnabekapp/res/app_images.dart';
 import 'package:flutter/material.dart';
+import 'package:alnabekapp/components/buttons.dart';
+import 'package:alnabekapp/res/app_images.dart';
 
 class Portada extends StatelessWidget {
 
@@ -22,7 +22,7 @@ class Portada extends StatelessWidget {
           ),
 
           // Botón
-          AppButtons.ingresarBotonPortada(context),
+          AppButtons.insertarBotonPortada(context),
         ],
       ),
     );

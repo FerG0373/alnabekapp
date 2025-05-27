@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppButtons {
 
   // Método para el botón Ingresar de la portada.
-  static Widget ingresarBotonPortada(BuildContext context) {
+  static Widget insertarBotonPortada(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Padding(
@@ -16,8 +16,6 @@ class AppButtons {
         ),
       ),
     );
-  }
-
-  
+  }  
 
 }
