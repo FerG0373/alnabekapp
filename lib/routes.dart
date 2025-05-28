@@ -7,8 +7,8 @@ import 'package:alnabekapp/screens/src2_login.dart';
 // import 'package:alnabekapp/screens/src5.dart';
 
 Map <String, Widget Function(BuildContext)> rutasApp = {
-  '/': (context) => const Portada(),
-  '/login': (context) => const Login(),
+  '/': (context) => const PortadaScreen(),
+  '/login': (context) => const LoginScreen(),
   // '/home': (context) => const PantallaTres(),
   // '/entrada': (context) => const PantallaCuatro(),
   // '/shawarma': (context) => const PantallaCinco(),

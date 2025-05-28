@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:alnabekapp/components/buttons.dart';
 import 'package:alnabekapp/res/app_imagespath.dart';
 
-class Portada extends StatelessWidget {
+class PortadaScreen extends StatelessWidget {
 
-  const Portada({super.key});
+  const PortadaScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

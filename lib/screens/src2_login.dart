@@ -5,9 +5,14 @@ import 'package:alnabekapp/components/appbars.dart';
 import 'package:alnabekapp/res/app_screenSize.dart';
 import 'package:alnabekapp/components/texts.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +53,9 @@ class Login extends StatelessWidget {
                       ],
                     ),
                   ),
+
+                  // Botón Iniciar Sesión.
+                  
                 ],
               )
             )
