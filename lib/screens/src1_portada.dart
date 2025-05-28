@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:alnabekapp/components/buttons.dart';
-import 'package:alnabekapp/res/app_images.dart';
+import 'package:alnabekapp/res/app_imagespath.dart';
 
 class Portada extends StatelessWidget {
 

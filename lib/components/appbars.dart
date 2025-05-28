@@ -7,7 +7,7 @@ class Appbars {
   static AppBar instertarLoginAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.background,
-      foregroundColor: Colors.white,
+      foregroundColor: AppColors.foreground,
     );
   }
 }
