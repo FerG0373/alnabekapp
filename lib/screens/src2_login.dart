@@ -15,7 +15,7 @@ class Login extends StatelessWidget {
       appBar: Appbars.instertarLoginAppBar(context),
       
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(top: 40),
         child: ListView(
           children: [
             Center(
@@ -26,22 +26,28 @@ class Login extends StatelessWidget {
                   // Logo
                   Image.asset(AppImages.logo, width: AppScreenSize.getAverage(context) * 0.4, height: AppScreenSize.getAverage(context) * 0.4),
         
-                  // Espacio entre logo y texto.
-                  const SizedBox(height: 30),
+                  // Espacio entre logo y título.
+                  const SizedBox(height: 20),
         
                   // Texto de Bienvenida.
                   AppTexts.insertarTextoBienvenida(context),
         
                   const SizedBox(height: 30),
-        
-                  // Campo de texto Usuario.
-                  AppTextFields.insertarCampoTexto(context, "Usuario", false),        
-                
-                  const SizedBox(height: 15),
-        
-                  // Campo de texto Contraseña.
-                  AppTextFields.insertarCampoTexto(context, "Contraseña", true),
-                  
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Column(
+                      children: [
+                        // Campo de texto Usuario.
+                        AppTextFields.insertarCampoTexto(context, "Usuario", false),        
+                      
+                        const SizedBox(height: 15),
+              
+                        // Campo de texto Contraseña.
+                        AppTextFields.insertarCampoTexto(context, "Contraseña", true),
+                      ],
+                    ),
+                  ),
                 ],
               )
             )
