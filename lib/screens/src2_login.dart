@@ -1,5 +1,5 @@
-import 'package:alnabekapp/components/textfields.dart';
 import 'package:flutter/material.dart';
+import 'package:alnabekapp/components/textfields.dart';
 import 'package:alnabekapp/res/app_imagespath.dart';
 import 'package:alnabekapp/components/appbars.dart';
 import 'package:alnabekapp/res/app_screenSize.dart';
@@ -13,6 +13,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  final TextEditingController userControlador = TextEditingController();
+  final TextEditingController passwordControlador = TextEditingController();
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

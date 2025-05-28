@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-// Método para obtener el tamaño de la pantalla del dispositivo.
 class AppScreenSize {
+// Métodos para obtener el tamaño de la pantalla del dispositivo.
   static double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
   static double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
   
