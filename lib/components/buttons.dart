@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:alnabekapp/res/app_screenSize.dart';
+import 'package:alnabekapp/res/app_colors.dart';
 
 class AppButtons {
 
@@ -17,10 +18,17 @@ class AppButtons {
             onPressed: () {
               Navigator.pushNamed(context, '/login');
             },
-            child: const Text("Ingresar"),
+            child: const Text(
+              "Ingresar",
+              style: TextStyle(
+                fontSize: 20,
+                color: AppColors.background,
+              )
+            ),
           ),
         ),
       ),
     );
   }
+  
 }

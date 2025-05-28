@@ -11,6 +11,7 @@ class Portada extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+
           // Imagen de fondo
           Container(
             decoration: BoxDecoration(
@@ -23,6 +24,7 @@ class Portada extends StatelessWidget {
 
           // Botón
           AppButtons.insertarBotonPortada(context),
+          
         ],
       ),
     );
