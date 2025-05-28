@@ -1,3 +1,4 @@
+import 'package:alnabekapp/components/textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:alnabekapp/res/app_imagespath.dart';
 import 'package:alnabekapp/components/appbars.dart';
@@ -13,22 +14,39 @@ class Login extends StatelessWidget {
       // AppBar
       appBar: Appbars.instertarLoginAppBar(context),
       
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
           children: [
-
-            // Logo
-            Image.asset(AppImages.logo, width: AppScreenSize.getAverage(context) * 0.4, height: AppScreenSize.getAverage(context) * 0.4),
-
-            // Espacio entre logo y texto
-            const SizedBox(height: 30),
-
-            // Texto de Bienvenida
-            AppTexts.insertarTextoBienvenida(context),
-            
-          ],
-        )
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  
+                  // Logo
+                  Image.asset(AppImages.logo, width: AppScreenSize.getAverage(context) * 0.4, height: AppScreenSize.getAverage(context) * 0.4),
+        
+                  // Espacio entre logo y texto.
+                  const SizedBox(height: 30),
+        
+                  // Texto de Bienvenida.
+                  AppTexts.insertarTextoBienvenida(context),
+        
+                  const SizedBox(height: 30),
+        
+                  // Campo de texto Usuario.
+                  AppTextFields.insertarCampoTexto(context, "Usuario", false),        
+                
+                  const SizedBox(height: 15),
+        
+                  // Campo de texto Contraseña.
+                  AppTextFields.insertarCampoTexto(context, "Contraseña", true),
+                  
+                ],
+              )
+            )
+          ]
+        ),
       )
     );
   }
