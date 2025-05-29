@@ -11,7 +11,6 @@ class PortadaScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-
           // Imagen de fondo
           Container(
             decoration: BoxDecoration(

@@ -9,7 +9,7 @@ class AppButtons {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 90),
+        padding: const EdgeInsets.only(bottom: 75),
         child: SizedBox(
           width: AppScreenSize.getAverage(context) * 0.2,
           height: AppScreenSize.getAverage(context) * 0.06,
@@ -22,6 +22,7 @@ class AppButtons {
               style: TextStyle(
                 fontSize: AppScreenSize.getAverage(context) * 0.025,
                 color: AppColors.background,
+                fontWeight: FontWeight.bold
               )
             ),
           ),
@@ -45,7 +46,8 @@ class AppButtons {
             "Iniciar Sesión",
             style: TextStyle(
               fontSize: AppScreenSize.getAverage(context) * 0.025,
-              color: AppColors.background
+              color: AppColors.background,
+              fontWeight: FontWeight.bold
             )
           )
         )

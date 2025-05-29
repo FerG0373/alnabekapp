@@ -6,7 +6,7 @@ class AppTextFields {
   static Widget insertarCampoTexto(BuildContext context, String titulo, bool valor, final controlador) {
     return SizedBox(
       width: AppScreenSize.getAverage(context) * 0.8,
-      height: AppScreenSize.getAverage(context) * 0.06,
+      height: AppScreenSize.getAverage(context) * 0.08,
       child: TextField(
         controller: controlador,
         decoration: InputDecoration(
