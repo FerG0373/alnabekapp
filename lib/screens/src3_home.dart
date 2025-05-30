@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:alnabekapp/components/appbars.dart';
-// import 'package:alnabekapp/res/app_screenSize.dart';
-// import 'package:alnabekapp/res/app_imagespath.dart';
+import 'package:alnabekapp/res/app_screenSize.dart';
+import 'package:alnabekapp/res/app_imagespath.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,6 +21,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       // AppBar
       appBar: Appbars.insertarAppBar(context, saludo, true),
+
+      body: Column(
+          children: [
+            
+          ],
+      )
     );
   }
 }

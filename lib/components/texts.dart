@@ -10,7 +10,7 @@ import 'package:flutter/widgets.dart';
         "¡Bienvenidos!",
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: AppColors.background,
+          color: AppColors.titleText,
           fontSize: AppScreenSize.getAverage(context) * 0.04,
           fontWeight: FontWeight.bold,
       ),

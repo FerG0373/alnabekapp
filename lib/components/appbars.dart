@@ -11,7 +11,7 @@ class Appbars {
       title: Text(
         texto,
         style: const TextStyle(
-          color: AppColors.foreground,
+          color: AppColors.appbarText,
           fontWeight: FontWeight.bold,
         )
       ),

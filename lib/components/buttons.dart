@@ -21,7 +21,7 @@ class AppButtons {
               "Ingresar",
               style: TextStyle(
                 fontSize: AppScreenSize.getAverage(context) * 0.025,
-                color: AppColors.background,
+                color: AppColors.buttonText,
                 fontWeight: FontWeight.bold
               )
             ),
@@ -48,7 +48,7 @@ class AppButtons {
             "Iniciar Sesión",
             style: TextStyle(
               fontSize: AppScreenSize.getAverage(context) * 0.025,
-              color: AppColors.background,
+              color: AppColors.titleText,
               fontWeight: FontWeight.bold
             )
           )
