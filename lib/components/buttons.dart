@@ -32,7 +32,7 @@ class AppButtons {
   }
   
   // Método para el botón Iniciar Sesión.
-  static Widget insertarBotonLogin(BuildContext context, String nombreUsuario) {
+  static Widget insertarBotonLogin(BuildContext context, TextEditingController controlador) {
     return Padding(
       padding: const EdgeInsets.only(top: 50, bottom: 10),
       child: SizedBox(
@@ -40,6 +40,8 @@ class AppButtons {
         height: AppScreenSize.getAverage(context) * 0.06,
         child: ElevatedButton(
           onPressed: () {
+            // Captura el valor cuando se presiona el botón y no antes. Trim() es para borrar espacios accidentales.
+            final nombreUsuario = controlador.text.trim();
             Navigator.pushNamed(context, "/home", arguments: nombreUsuario);
           },
           child: Text(

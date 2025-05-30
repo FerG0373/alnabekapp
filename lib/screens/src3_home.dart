@@ -14,7 +14,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
 
-    String datorecibido = ModalRoute.of(context)!.settings.arguments as String;
+    // ?? devuelve el valor de la izquierda si no es null, sino, devuelve el de la derecha.
+    String datorecibido = ModalRoute.of(context)?.settings.arguments as String? ?? 'Usuario';
     String saludo = '¡Bienvenido $datorecibido!';
 
     return Scaffold(
