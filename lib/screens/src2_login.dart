@@ -1,5 +1,5 @@
-import 'package:alnabekapp/components/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:alnabekapp/components/buttons.dart';
 import 'package:alnabekapp/components/textfields.dart';
 import 'package:alnabekapp/res/app_imagespath.dart';
 import 'package:alnabekapp/components/appbars.dart';
@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // AppBar
-      appBar: Appbars.insertarAppBar(context),
+      appBar: Appbars.insertarAppBar(context, ""),
 
       body: Padding(
         padding: const EdgeInsets.only(top: 40),
@@ -50,26 +50,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       children: [
                         // Campo de texto Usuario.
-                        AppTextFields.insertarCampoTexto(
-                          context,
-                          "Usuario",
-                          false,
-                          userControlador,
-                        ),
+                        AppTextFields.insertarCampoTexto(context, "Usuario", false, userControlador,),
                         // Espacio entre campos.
                         const SizedBox(height: 10),
                         // Campo de texto Contraseña.
-                        AppTextFields.insertarCampoTexto(
-                          context,
-                          "Contraseña",
-                          true,
-                          passwordControlador,
-                        ),
+                        AppTextFields.insertarCampoTexto(context, "Contraseña", true, passwordControlador,),
                       ],
                     ),
                   ),
                   // Botón Iniciar Sesión.
-                  AppButtons.insertarBotonLogin(context),
+                  AppButtons.insertarBotonLogin(context, userControlador.text),
                 ],
               ),
             ),

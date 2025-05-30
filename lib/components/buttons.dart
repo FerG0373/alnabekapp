@@ -31,8 +31,8 @@ class AppButtons {
     );
   }
   
-  // Método para el botón Ingresar de la pantalla de login.
-  static Widget insertarBotonLogin(BuildContext context) {
+  // Método para el botón Iniciar Sesión.
+  static Widget insertarBotonLogin(BuildContext context, String nombreUsuario) {
     return Padding(
       padding: const EdgeInsets.only(top: 50, bottom: 10),
       child: SizedBox(
@@ -40,7 +40,7 @@ class AppButtons {
         height: AppScreenSize.getAverage(context) * 0.06,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, "/home");
+            Navigator.pushNamed(context, "/home", arguments: nombreUsuario);
           },
           child: Text(
             "Iniciar Sesión",
