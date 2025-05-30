@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // AppBar
-      appBar: Appbars.insertarAppBar(context, ""),
+      appBar: Appbars.insertarAppBar(context, "", false),
 
       body: Padding(
         padding: const EdgeInsets.only(top: 40),
@@ -35,8 +35,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   // Logo
                   Image.asset(
                     AppImages.logo,
-                    width: AppScreenSize.getAverage(context) * 0.4,
-                    height: AppScreenSize.getAverage(context) * 0.4,
+                    width: AppScreenSize.getAverage(context) * 0.35,
+                    height: AppScreenSize.getAverage(context) * 0.35,
                   ),
                   // Espacio entre logo y título.
                   const SizedBox(height: 20),

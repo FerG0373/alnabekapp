@@ -4,7 +4,7 @@ import 'package:alnabekapp/res/app_colors.dart';
 class Appbars {
 
   // Método para generar las AppBar de la aplicación.
-  static AppBar insertarAppBar(BuildContext context, String texto) {
+  static AppBar insertarAppBar(BuildContext context, String texto, bool botonHamburguesa) {
     return AppBar(
       backgroundColor: AppColors.background,
       foregroundColor: AppColors.foreground,
@@ -15,6 +15,16 @@ class Appbars {
           fontWeight: FontWeight.bold,
         )
       ),
+      actions: botonHamburguesa ? [
+        IconButton(
+            icon: const Icon(Icons.menu), // Ícono hamburguesa
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('')),
+              );
+            },
+        ),
+      ] : null
     );
   }
 }

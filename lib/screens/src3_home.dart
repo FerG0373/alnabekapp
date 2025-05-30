@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       // AppBar
-      appBar: Appbars.insertarAppBar(context, saludo),
+      appBar: Appbars.insertarAppBar(context, saludo, true),
     );
   }
 }
