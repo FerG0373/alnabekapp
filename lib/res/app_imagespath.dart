@@ -9,4 +9,5 @@ class AppImages {
   static const String vegetariano = 'assets/img/vegetariano.png';
   static const String baklava = 'assets/img/baklava.png';
   static const String bebida = 'assets/img/bebida.png';
+  static const String shawarmaMenu = 'assets/img/shawarmaMenu.jpg';
 }

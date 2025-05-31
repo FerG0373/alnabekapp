@@ -12,7 +12,7 @@ class _EntradaScreenState extends State<EntradaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Appbars.insertarAppBar(context, '', false),
+      appBar: Appbars.insertarAppBar(context, 'Entrada', false),
     );
   }
 }

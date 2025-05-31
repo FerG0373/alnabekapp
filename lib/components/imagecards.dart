@@ -1,7 +1,6 @@
 import 'package:alnabekapp/res/app_screensize.dart';
 import 'package:flutter/material.dart';
 import 'package:alnabekapp/res/app_colors.dart';
-import 'package:alnabekapp/res/app_imagespath.dart';
 
 class AppImageCards {
 
@@ -18,11 +17,11 @@ class AppImageCards {
     );
 
   // Método para insertar la imagen de menú en la pantalla.
-  static Widget insertarMenuCard(BuildContext context, String titulo) {    
+  static Widget insertarMenuCard(BuildContext context, String rutaImagen, String titulo) {    
     return Container(
       decoration: BoxDecoration(
-        image: const DecorationImage(
-          image: AssetImage(AppImages.menu),
+        image: DecorationImage(
+          image: AssetImage(rutaImagen),
           fit: BoxFit.cover,
         ),
       ),

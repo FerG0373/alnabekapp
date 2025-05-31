@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // Espacio entre tarjetas.
             espacio,
             // Menú
-            AppImageCards.insertarMenuCard(context, 'Menú'),
+            AppImageCards.insertarMenuCard(context, AppImages.menu, 'Menú'),
             // Espacio entre tarjetas.
             espacio,
             Row(
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                // Fatayer.
+                // Fatay.
                 AppImageCards.insertarItemCard(context, '', AppImages.fatay, 'Fatay'),
                 // Vegetariano.
                 AppImageCards.insertarItemCard(context, '', AppImages.vegetariano, 'Vegetariano'),
