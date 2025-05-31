@@ -1,7 +1,6 @@
+import 'package:alnabekapp/components/imagecards.dart';
 import 'package:flutter/material.dart';
 import 'package:alnabekapp/components/appbars.dart';
-import 'package:alnabekapp/res/app_screenSize.dart';
-import 'package:alnabekapp/res/app_imagespath.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // Espacio
             SizedBox(height: 2),
             // Menú
+            AppImageCards.insertarMenuCard(context, 'Menú'),
             
           ],
       )

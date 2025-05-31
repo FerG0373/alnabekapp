@@ -9,4 +9,5 @@ class AppColors {
   static const Color titleText = Color(0xFF1C3B40);
   static const Color appbarText = Color(0xFFFFFFFF);
   static const Color buttonText = Color(0xFF1C3B40);
+  static const Color cardText = Color(0xFFFFFFFF);
 }
