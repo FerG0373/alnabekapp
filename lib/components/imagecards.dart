@@ -26,13 +26,54 @@ class AppImageCards {
           fit: BoxFit.cover,
         ),
       ),
-      width: AppScreenSize.getWidth(context) * 1,
+      width: AppScreenSize.getWidth(context) * 0.99,
       height: AppScreenSize.getHeight(context) *  0.2,
       child: Center(
         child: Text(
           titulo,
           style: textStyle,
         )
+      )
+    );
+  }
+  // Método para insertar una tarjeta de imagen.
+  static Widget insertarItemCard(BuildContext context, String rutaPantalla, String imagen, String titulo) {
+    return GestureDetector(
+      onTap: () {
+        if(rutaPantalla == '') {
+          showDialog<String>(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text(titulo),
+              content: const Text('No hay stock.'),
+              actions: <Widget> [
+                TextButton(
+                  onPressed:  () => Navigator.pop(context, 'OK'),
+                  child: const Text('OK'),
+                )
+              ]
+            )
+          );
+        } else {
+          Navigator.pushNamed(context, rutaPantalla);
+        }
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          image: DecorationImage(
+            image: AssetImage(imagen),
+            fit: BoxFit.cover,
+          )
+        ),
+        height: AppScreenSize.getHeight(context) * 0.21,
+        width: AppScreenSize.getWidth(context) * 0.49,
+        child: Center(
+          child: Text(
+            titulo,
+            style: textStyle,
+          ),
+        ),
       )
     );
   }

@@ -1,6 +1,8 @@
-import 'package:alnabekapp/components/imagecards.dart';
 import 'package:flutter/material.dart';
 import 'package:alnabekapp/components/appbars.dart';
+import 'package:alnabekapp/components/imagecards.dart';
+import 'package:alnabekapp/res/app_imagespath.dart';
+import 'package:alnabekapp/res/app_screenSize.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,6 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
     // ?? devuelve el valor de la izquierda si no es null, sino, devuelve el de la derecha.
     String datorecibido = ModalRoute.of(context)?.settings.arguments as String? ?? 'Usuario';
     String saludo = '¡Bienvenido $datorecibido!';
+    // Espacio entre tarjetas
+    SizedBox espacio = SizedBox(height: AppScreenSize.getHeight(context) * 0.006);
 
     return Scaffold(
       // AppBar
@@ -23,11 +27,43 @@ class _HomeScreenState extends State<HomeScreen> {
 
       body: Column(
           children: [
-            // Espacio
-            SizedBox(height: 2),
+            // Espacio entre tarjetas.
+            espacio,
             // Menú
             AppImageCards.insertarMenuCard(context, 'Menú'),
-            
+            // Espacio entre tarjetas.
+            espacio,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // Entrada.
+                AppImageCards.insertarItemCard(context, '/entrada', AppImages.entrada, 'Entrada'),
+                // Shawarma.
+                AppImageCards.insertarItemCard(context, '/shawarma', AppImages.shawarma, 'Shawarma'),                
+              ]
+            ),
+            // Espacio entre tarjetas.
+            espacio,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // Fatayer.
+                AppImageCards.insertarItemCard(context, '', AppImages.fatay, 'Fatay'),
+                // Vegetariano.
+                AppImageCards.insertarItemCard(context, '', AppImages.vegetariano, 'Vegetariano'),
+              ],
+            ),
+            // Espacio entre tarjetas.
+            espacio,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // Postres.
+                AppImageCards.insertarItemCard(context, '', AppImages.baklava, 'Postres'),
+                // Bebida.
+                AppImageCards.insertarItemCard(context, '', AppImages.bebida, 'Bebida'),
+              ]
+            )
           ],
       )
     );
