@@ -20,12 +20,14 @@ class AppImageCards {
   static Widget insertarMenuCard(BuildContext context, String rutaImagen, String titulo) {    
     return Container(
       decoration: BoxDecoration(
+        color: Colors.black,
         image: DecorationImage(
           image: AssetImage(rutaImagen),
+          opacity: 0.8,
           fit: BoxFit.cover,
         ),
       ),
-      width: AppScreenSize.getWidth(context) * 0.99,
+      width: AppScreenSize.getWidth(context) * 1,
       height: AppScreenSize.getHeight(context) *  0.2,
       child: Center(
         child: Text(
@@ -59,8 +61,10 @@ class AppImageCards {
       },
       child: Container(
         decoration: BoxDecoration(
+          color: Colors.black,
           borderRadius: BorderRadius.circular(25),
           image: DecorationImage(
+            opacity: 0.5,
             image: AssetImage(imagen),
             fit: BoxFit.cover,
           )
