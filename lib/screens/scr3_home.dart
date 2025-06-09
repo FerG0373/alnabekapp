@@ -30,16 +30,16 @@ class _HomeScreenState extends State<HomeScreen> {
             // Espacio entre tarjetas.
             espacio,
             // Menú
-            AppImageCards.insertarMenuCard(context, AppImages.menu, 'Menú'),
+            AppImageCards.insertarMenuPortada(context, AppImages.menu, 'Menú'),
             // Espacio entre tarjetas.
             espacio,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 // Entrada.
-                AppImageCards.insertarItemCard(context, '/entrada', AppImages.entrada, 'Entrada'),
+                AppImageCards.insertarItem(context, '/entrada', AppImages.entrada, 'Entrada'),
                 // Shawarma.
-                AppImageCards.insertarItemCard(context, '/shawarma', AppImages.shawarma, 'Shawarma'),                
+                AppImageCards.insertarItem(context, '/shawarma', AppImages.shawarma, 'Shawarma'),                
               ]
             ),
             // Espacio entre tarjetas.
@@ -48,9 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 // Fatay.
-                AppImageCards.insertarItemCard(context, '', AppImages.fatay, 'Fatay'),
+                AppImageCards.insertarItem(context, '', AppImages.fatay, 'Fatay'),
                 // Vegetariano.
-                AppImageCards.insertarItemCard(context, '', AppImages.vegetariano, 'Vegetariano'),
+                AppImageCards.insertarItem(context, '', AppImages.vegetariano, 'Vegetariano'),
               ],
             ),
             // Espacio entre tarjetas.
@@ -59,9 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 // Postres.
-                AppImageCards.insertarItemCard(context, '', AppImages.baklava, 'Postres'),
+                AppImageCards.insertarItem(context, '', AppImages.baklava, 'Postres'),
                 // Bebida.
-                AppImageCards.insertarItemCard(context, '', AppImages.bebida, 'Bebida'),
+                AppImageCards.insertarItem(context, '', AppImages.bebida, 'Bebida'),
               ]
             )
           ],

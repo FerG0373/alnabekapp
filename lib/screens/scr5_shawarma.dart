@@ -19,7 +19,7 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
       body: Column(
         children: [
 
-          AppImageCards.insertarMenuCard(context, AppImages.shawarmaMenu, ''),
+          AppImageCards.insertarMenuPortada(context, AppImages.shawarmaMenu, ''),
         ],
       )
     );

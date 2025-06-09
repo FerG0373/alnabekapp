@@ -12,12 +12,12 @@ class AppImageCards {
         Shadow(offset: Offset(-1.5, 1.5), color: Colors.black),
       ],
       color: AppColors.cardText,
-      fontSize: 35,
+      fontSize: 25,
       fontWeight: FontWeight.bold,
     );
 
   // Método para insertar la imagen de menú en la pantalla.
-  static Widget insertarMenuCard(BuildContext context, String rutaImagen, String titulo) {    
+  static Widget insertarMenuPortada(BuildContext context, String rutaImagen, String titulo) {    
     return Container(
       decoration: BoxDecoration(
         color: Colors.black,
@@ -37,8 +37,8 @@ class AppImageCards {
       )
     );
   }
-  // Método para insertar una tarjeta de imagen.
-  static Widget insertarItemCard(BuildContext context, String rutaPantalla, String imagen, String titulo) {
+  // Método para insertar la imagen de una comida.
+  static Widget insertarItem(BuildContext context, String rutaPantalla, String imagen, String titulo) {
     return GestureDetector(
       onTap: () {
         if(rutaPantalla == '') {
