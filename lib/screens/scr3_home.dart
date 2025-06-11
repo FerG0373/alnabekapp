@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:alnabekapp/components/appbars.dart';
-import 'package:alnabekapp/components/imagecards.dart';
+import 'package:alnabekapp/components/appbar.dart';
+import 'package:alnabekapp/components/imagecard.dart';
 import 'package:alnabekapp/res/app_imagespath.dart';
 import 'package:alnabekapp/res/app_screenSize.dart';
 

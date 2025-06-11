@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:alnabekapp/components/buttons.dart';
-import 'package:alnabekapp/components/textfields.dart';
+import 'package:alnabekapp/components/button.dart';
+import 'package:alnabekapp/components/textfield.dart';
 import 'package:alnabekapp/res/app_imagespath.dart';
-import 'package:alnabekapp/components/appbars.dart';
+import 'package:alnabekapp/components/appbar.dart';
 import 'package:alnabekapp/res/app_screenSize.dart';
-import 'package:alnabekapp/components/texts.dart';
+import 'package:alnabekapp/components/text.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

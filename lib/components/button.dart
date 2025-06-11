@@ -3,9 +3,8 @@ import 'package:alnabekapp/res/app_screenSize.dart';
 import 'package:alnabekapp/res/app_colors.dart';
 
 class AppButtons {
-
   // Método para el botón Ingresar de la portada.
-  static Widget insertarBotonPortada(BuildContext context) {    
+  static Widget insertarBotonPortada(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Padding(
@@ -22,17 +21,20 @@ class AppButtons {
               style: TextStyle(
                 fontSize: AppScreenSize.getAverage(context) * 0.025,
                 color: AppColors.buttonText,
-                fontWeight: FontWeight.bold
-              )
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
       ),
     );
   }
-  
+
   // Método para el botón Iniciar Sesión.
-  static Widget insertarBotonLogin(BuildContext context, TextEditingController controlador) {
+  static Widget insertarBotonLogin(
+    BuildContext context,
+    TextEditingController controlador,
+  ) {
     return Padding(
       padding: const EdgeInsets.only(top: 50, bottom: 10),
       child: SizedBox(
@@ -49,12 +51,28 @@ class AppButtons {
             style: TextStyle(
               fontSize: AppScreenSize.getAverage(context) * 0.025,
               color: AppColors.titleText,
-              fontWeight: FontWeight.bold
-            )
-          )
-        )
-      )
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
     );
   }
-  
+
+  // Método para Botón Agregar.
+  static Widget insertarBotonAgregar(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        Navigator.pushNamed(context, "/addShawarma");
+      },
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      child: Image.asset(
+      'assets/img/add_icon.png',
+      height: 40,
+      width: 40,
+      fit: BoxFit.cover,
+      ),
+    );
+  }
 }

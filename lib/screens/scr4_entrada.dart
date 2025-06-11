@@ -1,4 +1,4 @@
-import 'package:alnabekapp/components/appbars.dart';
+import 'package:alnabekapp/components/appbar.dart';
 import 'package:flutter/material.dart';
 
 class EntradaScreen extends StatefulWidget {

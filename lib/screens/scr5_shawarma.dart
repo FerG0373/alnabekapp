@@ -1,5 +1,6 @@
-import 'package:alnabekapp/components/appbars.dart';
-import 'package:alnabekapp/components/imagecards.dart';
+import 'package:alnabekapp/components/appbar.dart';
+import 'package:alnabekapp/components/button.dart';
+import 'package:alnabekapp/components/imagecard.dart';
 import 'package:alnabekapp/res/app_imagespath.dart';
 import 'package:flutter/material.dart';
 
@@ -18,10 +19,12 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
 
       body: Column(
         children: [
-
+          // Imagen portada.
           AppImageCards.insertarMenuPortada(context, AppImages.shawarmaMenu, ''),
         ],
-      )
+      ),
+      // Botón Agregar.
+      floatingActionButton: AppButtons.insertarBotonAgregar(context),
     );
   }
 }
