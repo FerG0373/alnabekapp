@@ -60,10 +60,10 @@ class AppButtons {
   }
 
   // Método para Botón Agregar.
-  static Widget insertarBotonAgregar(BuildContext context) {
+  static Widget insertarBotonAgregar(BuildContext context, rutaImagen) {
     return FloatingActionButton(
       onPressed: () {
-        Navigator.pushNamed(context, "/addShawarma");
+        Navigator.pushNamed(context, rutaImagen);
       },
       backgroundColor: Colors.transparent,
       elevation: 0,

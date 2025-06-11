@@ -24,7 +24,7 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
         ],
       ),
       // Botón Agregar.
-      floatingActionButton: AppButtons.insertarBotonAgregar(context),
+      floatingActionButton: AppButtons.insertarBotonAgregar(context, '/addShawarma'),
     );
   }
 }
