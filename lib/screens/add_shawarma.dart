@@ -7,14 +7,14 @@ class AddShawarma extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Appbars.insertarAppBar(context, "", false),
+      appBar: Appbars.insertarAppBar(context, "Agregar producto", false),
       body: Center(
         child: Column(
           children: [
             TextFormField(),
             TextFormField(),
             TextFormField(),
-            
+
           ],
         )
       ),
