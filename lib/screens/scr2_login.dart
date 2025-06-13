@@ -50,11 +50,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       children: [
                         // Campo de texto Usuario.
-                        AppTextFields.insertarCampoTexto(context, "Usuario", false, userControlador,),
+                        AppTextFields.insertarTextField(context, "Usuario", false, userControlador,),
                         // Espacio entre campos.
                         const SizedBox(height: 10),
                         // Campo de texto Contraseña.
-                        AppTextFields.insertarCampoTexto(context, "Contraseña", true, passwordControlador,),
+                        AppTextFields.insertarTextField(context, "Contraseña", true, passwordControlador,),
                       ],
                     ),
                   ),
