@@ -1,4 +1,5 @@
 import 'package:alnabekapp/components/appbar.dart';
+import 'package:alnabekapp/components/button.dart';
 import 'package:alnabekapp/components/dropdown.dart';
 import 'package:alnabekapp/components/textfield.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,8 @@ class AddShawarma extends StatelessWidget {
               AppTextFields.insertarTextFormField(40, "Precio"),
               SizedBox(height: 20),
               AppDropDown.insertarDropDown(['Carne', 'Pollo', 'Mixto', 'Falafel', 'Al Nabek', 'Al plato']),
+              SizedBox(height: 100),
+              AppButton.insertarBotonAceptar(),
             ],
           ),
         ),

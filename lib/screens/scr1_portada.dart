@@ -22,7 +22,7 @@ class PortadaScreen extends StatelessWidget {
           ),
 
           // Botón.
-          AppButtons.insertarBotonPortada(context),
+          AppButton.insertarBotonPortada(context),
           
         ],
       ),

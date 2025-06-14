@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:alnabekapp/res/app_screenSize.dart';
 import 'package:alnabekapp/res/app_colors.dart';
 
-class AppButtons {
+class AppButton {
   // Método para el botón Ingresar de la portada.
   static Widget insertarBotonPortada(BuildContext context) {
     return Align(
@@ -59,7 +59,7 @@ class AppButtons {
     );
   }
 
-  // Método para Botón Agregar.
+  // Método para el Botón Agregar.
   static Widget insertarBotonAgregar(BuildContext context, rutaImagen) {
     return FloatingActionButton(
       onPressed: () {
@@ -72,6 +72,24 @@ class AppButtons {
       height: 40,
       width: 40,
       fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  // Método para el botón Aceptar.
+  static Widget insertarBotonAceptar() {
+    return ElevatedButton(
+      onPressed: () {
+
+      },
+      child: Text("Aceptar"),
+      style: ElevatedButton.styleFrom(
+      backgroundColor: Colors.green,
+      foregroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       ),
     );
   }

@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   // Botón Iniciar Sesión.
-                  AppButtons.insertarBotonLogin(context, userControlador),
+                  AppButton.insertarBotonLogin(context, userControlador),
                 ],
               ),
             ),
