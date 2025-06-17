@@ -22,6 +22,12 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
     _shawarmasFuture = ShawarmaService().getShawarmas();
   }
 
+  Future<void> _refreshShawarmas() async {
+    setState(() {
+      _shawarmasFuture = ShawarmaService().getShawarmas();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +42,35 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
             '',
           ),
         
+        Expanded(
+          child: FutureBuilder<List<Shawarma>>(
+          future: _shawarmasFuture,
+          builder: (context, snapshot) {
+            if(snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if(snapshot.hasError) {
+              return Center(child: Text("Error: ${snapshot.error}"));
+            } else if(!snapshot.hasData || snapshot.data!.isEmpty) {
+              return Center(child: Text("No hay registros"));
+            } else {
+              return RefreshIndicator(
+                onRefresh: _refreshShawarmas,
+                child: ListView.builder(
+                  padding: EdgeInsets.all(10),
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (context, i) {
+                    final shawarma = snapshot.data![i];
+                    return ListTile(
+                      title: Text(shawarma.nombre),
+                      subtitle: Text('Precio: \$${shawarma.precio}'),
+                    );
+                  }
+                )
+              );
+            }
+          }          
+          ),
+        )
         
         ],
       ),
