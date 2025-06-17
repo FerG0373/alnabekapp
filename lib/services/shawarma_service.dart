@@ -6,7 +6,7 @@ class ShawarmaService {
   final String baseUrl = "https://api.awspaints.com.ar/index.php";
 
   Future<List<Shawarma>> getShawarmas() async {
-    final response = await http.get(Uri.parse('$baseUrl/shawarmaComidas/0'));
+    final response = await http.get(Uri.parse('$baseUrl/shawarmaComidas'));
 
     if(response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);

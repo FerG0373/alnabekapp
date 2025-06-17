@@ -41,7 +41,7 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
             AppImages.shawarmaMenu,
             '',
           ),
-        
+        // Listado de Shawarmas.
         Expanded(
           child: FutureBuilder<List<Shawarma>>(
           future: _shawarmasFuture,
@@ -54,7 +54,9 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
               return Center(child: Text("No hay registros"));
             } else {
               return RefreshIndicator(
-                onRefresh: _refreshShawarmas,
+                onRefresh: () async {
+                  _refreshShawarmas();
+                },
                 child: ListView.builder(
                   padding: EdgeInsets.all(10),
                   itemCount: snapshot.data!.length,
