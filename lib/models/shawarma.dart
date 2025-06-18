@@ -25,6 +25,16 @@ class Shawarma {
   double get precio => _precio;
   String get imagen => _tipo;
 
+  // Convierte Map a Json
+  Map<String, dynamic> toJson() {
+  return {
+    'nombre_comida': _nombre,
+    'descripcion_comida': _descripcion,
+    'precio_comida': _precio,
+    'tipo_comida': _tipo,
+  };
+}
+
   // Convierte JSON a Map.
   factory Shawarma.fromJson(Map<String, dynamic> json) {
     return Shawarma(
