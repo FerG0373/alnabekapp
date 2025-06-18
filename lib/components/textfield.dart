@@ -24,8 +24,9 @@ class AppTextFields {
   }
 
   // Método para crear campos de texto de formularios.
-  static Widget insertarTextFormField(int longitudMax, String textoEtiqueta) {
+  static Widget insertarTextFormField(int longitudMax, String textoEtiqueta, TextEditingController controlador) {
     return TextFormField(
+      controller: controlador,
       maxLength: longitudMax,
       decoration: InputDecoration(
         labelText: textoEtiqueta

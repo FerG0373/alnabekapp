@@ -25,7 +25,7 @@ class ShawarmaService {
   }
 
   // Método Post  
-  Future<bool> crearShawarma(Shawarma nuevoShawarma) async {
+  Future<bool> insertarShawarma(Shawarma nuevoShawarma) async {
   final url = Uri.parse('$baseUrl/shawarmaComidas');
   final headers = {'Content-Type': 'application/json'};
   final body = json.encode(nuevoShawarma.toJson());

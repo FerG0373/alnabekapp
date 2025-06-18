@@ -3,6 +3,7 @@ import 'package:alnabekapp/res/app_screenSize.dart';
 import 'package:alnabekapp/res/app_colors.dart';
 
 class AppButton {
+
   // Método para el botón Ingresar de la portada.
   static Widget insertarBotonPortada(BuildContext context) {
     return Align(
@@ -77,7 +78,7 @@ class AppButton {
   }
 
   // Método para el botón Aceptar.
-  static Widget insertarBotonAceptar() {
+  static Widget insertarBotonAceptar(VoidCallback onPressed) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.green,
@@ -87,9 +88,7 @@ class AppButton {
         ),
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       ),
-      onPressed: () {
-
-      },
+      onPressed: onPressed,
       child: Text("Aceptar"),
     );
   }
