@@ -39,14 +39,14 @@ class _AddShawarmaState extends State<AddShawarma> {
     final error = _controller.validarCampos();
     if(error != null) {
       _mostrarMensaje(error);
-      return;
+      return; // Si hay un error de validación, muestra el mensaje y no continúa.
     }
 
     try {
       final shawarmaCreado = await _controller.guardarShawarma();
       if(shawarmaCreado) {
         _mostrarMensaje('Shawarma agregado con éxito.');
-        if(mounted) Navigator.of(context).pop();        
+        if(mounted) Navigator.of(context).pop(); // Cierra la pantalla actual si el widget sigue montado.  
       } else {
         _mostrarMensaje('Error al agregar Shawarma.');
       }
@@ -69,9 +69,9 @@ class _AddShawarmaState extends State<AddShawarma> {
               const SizedBox(height: 20),
               AppTextFields.insertarTextFormField(100, "Descripción", _controller.descripcionControlador),
               const SizedBox(height: 20),
-              AppTextFields.insertarTextFormField(40, "Precio", _controller.precioControlador),
+              AppTextFields.insertarTextFormField(40, "Precio", _controller.precioControlador, keyboardType: TextInputType.number),
               const SizedBox(height: 20),
-              AppDropDown.insertarDropDown(['Carne', 'Pollo', 'Mixto', 'Falafel', 'Al Nabek', 'Al plato'],
+              AppDropDown.insertarDropDown(['Carne', 'Pollo', 'Mixto', 'Vegetariano', 'Al Nabek', 'Al plato'],
                 selectedValue: _controller.tipoSeleccionado,
                 onChanged: (String? nuevoValor) {
                   setState(() {

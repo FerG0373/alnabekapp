@@ -65,6 +65,23 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
                     return ListTile(
                       title: Text(shawarma.nombre),
                       subtitle: Text('Precio: \$${shawarma.precio}'),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min, // Esto asegura que la fila ocupe solo el espacio necesario.
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.edit, color: Colors.blue),
+                            onPressed: () {
+                              
+                            },
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.delete, color: Colors.red),
+                            onPressed: () {
+                              
+                            },
+                          ),
+                        ],
+                      ),
                     );
                   }
                 )
