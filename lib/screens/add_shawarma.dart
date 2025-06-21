@@ -2,8 +2,7 @@ import 'package:alnabekapp/components/appbar.dart';
 import 'package:alnabekapp/components/button.dart';
 import 'package:alnabekapp/components/dropdown.dart';
 import 'package:alnabekapp/components/textfield.dart';
-import 'package:alnabekapp/models/shawarma.dart';
-import 'package:alnabekapp/services/shawarma_service.dart';
+import 'package:alnabekapp/controllers/add_shawarma_controller.dart';
 import 'package:flutter/material.dart';
 
 class AddShawarma extends StatefulWidget {
@@ -15,47 +14,47 @@ class AddShawarma extends StatefulWidget {
 
 class _AddShawarmaState extends State<AddShawarma> {
 
-  final TextEditingController _nombreControlador = TextEditingController();
-  final TextEditingController _descripcionControlador = TextEditingController();
-  final TextEditingController _precioControlador = TextEditingController();
-  String? _tipoSeleccionado;
+  // Instancia del controlador para manejar la lógica de agregar un Shawarma.
+  late final AddShawarmaController _controller;
 
-  void guardarShawarma() async {
-    if (_nombreControlador.text.isEmpty ||
-        _descripcionControlador.text.isEmpty ||
-        _precioControlador.text.isEmpty ||
-        _tipoSeleccionado == null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Por favor, completá todos los campos')),
-          );
-          return;
-      }
-
-    final scaffoldMessenger = ScaffoldMessenger.of(context);
-    final navigator = Navigator.of(context);
-
-    final nuevoShawarma = Shawarma(
-      id: 0,
-      nombre: _nombreControlador.text,
-      descripcion: _descripcionControlador.text,
-      precio: double.tryParse(_precioControlador.text) ?? 0.0,
-      tipo: _tipoSeleccionado!.toLowerCase(),
+  // Inicialización del controlador en el método initState.
+  @override
+  void initState() {
+    super.initState();
+    // Llamada al constructor del controlador con los controladores de texto y el tipo seleccionado.
+    _controller = AddShawarmaController(
+      nombreControlador: TextEditingController(),
+      descripcionControlador: TextEditingController(),
+      precioControlador: TextEditingController(),
     );
-
-    final shawarmaCreado = await ShawarmaService().insertarShawarma(nuevoShawarma);
-
-    if (shawarmaCreado) {
-      scaffoldMessenger.showSnackBar(
-        SnackBar(content: Text('Shawarma agregado con éxito')),
-      );
-      navigator.pop();
-    } else {
-      scaffoldMessenger.showSnackBar(
-        SnackBar(content: Text('Error al agregar Shawarma')),
-      );
-    }
   }
 
+  void _mostrarMensaje(String mensaje) {
+    // Verifica si el widget está montado antes de mostrar el mensaje.
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(mensaje)));
+  }
+
+  Future<void> guardarShawarma() async{
+    final error = _controller.validarCampos();
+    if(error != null) {
+      _mostrarMensaje(error);
+      return;
+    }
+
+    try {
+      final shawarmaCreado = await _controller.guardarShawarma();
+      if(shawarmaCreado) {
+        _mostrarMensaje('Shawarma agregado con éxito.');
+        if(mounted) Navigator.of(context).pop();        
+      } else {
+        _mostrarMensaje('Error al agregar Shawarma.');
+      }
+    } catch(e) {
+      _mostrarMensaje('Error inesperado: ${e.toString()}');
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,17 +65,17 @@ class _AddShawarmaState extends State<AddShawarma> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AppTextFields.insertarTextFormField(40, "Nombre", _nombreControlador),
+              AppTextFields.insertarTextFormField(40, "Nombre", _controller.nombreControlador),
               const SizedBox(height: 20),
-              AppTextFields.insertarTextFormField(40, "Descripción", _descripcionControlador),
+              AppTextFields.insertarTextFormField(100, "Descripción", _controller.descripcionControlador),
               const SizedBox(height: 20),
-              AppTextFields.insertarTextFormField(40, "Precio", _precioControlador),
+              AppTextFields.insertarTextFormField(40, "Precio", _controller.precioControlador),
               const SizedBox(height: 20),
               AppDropDown.insertarDropDown(['Carne', 'Pollo', 'Mixto', 'Falafel', 'Al Nabek', 'Al plato'],
-                selectedValue: _tipoSeleccionado,
+                selectedValue: _controller.tipoSeleccionado,
                 onChanged: (String? nuevoValor) {
                   setState(() {
-                    _tipoSeleccionado = nuevoValor;
+                    _controller.tipoSeleccionado = nuevoValor;
                   });
                 }
               ),
