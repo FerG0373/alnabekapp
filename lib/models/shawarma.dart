@@ -23,11 +23,12 @@ class Shawarma {
   String get nombre => _nombre;
   String? get descripcion => _descripcion;
   double get precio => _precio;
-  String get imagen => _tipo;
+  String get tipo => _tipo;
 
   // Convierte Map a Json
   Map<String, dynamic> toJson() {
   return {
+    'id_comida': _id,
     'nombre_comida': _nombre,
     'descripcion_comida': _descripcion,
     'precio_comida': _precio,

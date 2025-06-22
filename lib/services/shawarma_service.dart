@@ -38,4 +38,17 @@ class ShawarmaService {
       return false;
     }
   }
+
+  // Método Patch
+  Future<bool> actualizarShawarma(int id, Map<String, dynamic> modificacion) async {
+  final url = Uri.parse('$baseUrl/shawarmaComidas/$id');
+  final headers = {'Content-Type': 'application/json'};
+  final body = json.encode(modificacion);
+
+  final response = await http.patch(url, headers: headers, body: body);
+
+  return response.statusCode == 200;
+  }
+
+
 } 
