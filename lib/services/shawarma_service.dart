@@ -39,16 +39,23 @@ class ShawarmaService {
     }
   }
 
-  // Método Patch
-  Future<bool> actualizarShawarma(int id, Map<String, dynamic> modificacion) async {
-  final url = Uri.parse('$baseUrl/shawarmaComidas/$id');
-  final headers = {'Content-Type': 'application/json'};
-  final body = json.encode(modificacion);
+  // Método Put.
+  Future<bool> actualizarShawarma(int id, Map<String, dynamic> shawarmaCompleto) async {
+    final url = Uri.parse('$baseUrl/shawarmaComidas/$id');
+    final headers = {'Content-Type': 'application/json'};
+    final body = json.encode(shawarmaCompleto);
 
-  final response = await http.patch(url, headers: headers, body: body);
+    try {
+      final response = await http.put(url, headers: headers, body: body);
 
-  return response.statusCode == 200;
+      if (response.statusCode == 200) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
   }
-
 
 } 

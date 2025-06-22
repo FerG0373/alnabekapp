@@ -1,4 +1,3 @@
-import 'package:alnabekapp/components/appbar.dart';
 import 'package:flutter/material.dart';
 
 class EditShawarma extends StatefulWidget {
@@ -11,9 +10,6 @@ class EditShawarma extends StatefulWidget {
 class _EditShawarmaState extends State<EditShawarma> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: Appbars.insertarAppBar(context, "Editar Shawarma", false),
-      
-    );
+    return const Placeholder();
   }
 }

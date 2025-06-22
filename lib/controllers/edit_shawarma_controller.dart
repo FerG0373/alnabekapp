@@ -43,14 +43,16 @@ class EditShawarmaController {
   }
 
   Future<bool> guardarCambios(int shawarmaId, Shawarma shawarmaOriginal) async {
-    final modificacion = obtenerCambios(shawarmaOriginal);
+    // Verifica si hay cambios antes de proceder.
+    final shawarmaModificado = Shawarma(
+      id: shawarmaOriginal.id,
+      nombre: nombreControlador.text,
+      descripcion: descripcionControlador.text.isNotEmpty ? descripcionControlador.text : null, // Maneja el caso de descripción nula.
+      precio: double.parse(precioControlador.text),
+      tipo: tipoSeleccionado ?? shawarmaOriginal.tipo,
+    );
 
-    if (modificacion.isEmpty) {
-      // Si no hay cambios, retorna false sin hacer nada.
-      return false;
-    }
-
-    return await ShawarmaService().actualizarShawarma(shawarmaId, modificacion);
+    // Llama al servicio para actualizar el Shawarma.
+    return await ShawarmaService().actualizarShawarma(shawarmaId, shawarmaModificado.toJson());
   }
-
 }

@@ -1,5 +1,4 @@
 import 'package:alnabekapp/screens/add_shawarma.dart';
-import 'package:alnabekapp/screens/edit_shawarma.dart';
 import 'package:alnabekapp/screens/scr5_shawarma.dart';
 import 'package:alnabekapp/screens/scr4_entrada.dart';
 import 'package:alnabekapp/screens/scr3_home.dart';
@@ -14,5 +13,4 @@ Map <String, Widget Function(BuildContext)> rutasApp = {
   '/entrada': (context) => const EntradaScreen(),
   '/shawarma': (context) => const ShawarmaScreen(),
   '/addShawarma': (context) => const AddShawarma(),
-  'editShawarma': (context) => const EditShawarma(),
 };
