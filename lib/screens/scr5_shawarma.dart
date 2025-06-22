@@ -3,6 +3,7 @@ import 'package:alnabekapp/components/button.dart';
 import 'package:alnabekapp/components/imagecard.dart';
 import 'package:alnabekapp/models/shawarma.dart';
 import 'package:alnabekapp/res/app_imagespath.dart';
+import 'package:alnabekapp/screens/edit_shawarma.dart';
 import 'package:alnabekapp/services/shawarma_service.dart';
 import 'package:flutter/material.dart';
 
@@ -71,7 +72,17 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
                           IconButton(
                             icon: Icon(Icons.edit, color: Colors.blue),
                             onPressed: () {
-                              
+                              Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => EditShawarma(
+                                        shawarmaOriginal: shawarma,
+                                      ),
+                                    ),
+                                  ).then((_) {
+                                    // Refresca la lista al regresar de la pantalla de edición.
+                                    _refreshShawarmas();
+                                  });
                             },
                           ),
                           IconButton(
