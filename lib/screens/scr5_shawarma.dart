@@ -71,7 +71,7 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
                           IconButton(
                             icon: Icon(Icons.edit, color: Colors.blue),
                             onPressed: () {
-                              
+                              Navigator.pushNamed(context, 'editShawarma');
                             },
                           ),
                           IconButton(
