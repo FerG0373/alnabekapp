@@ -57,4 +57,21 @@ class ShawarmaService {
       return false;
     }
   }
+
+  // Método Delete.
+  Future<bool> eliminarShawarma(int id) async {
+    final url = Uri.parse('$baseUrl/shawarmaComidas/$id');
+
+    try {
+      final response = await http.delete(url);
+
+      if (response.statusCode == 200 || response.statusCode == 204) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
+  }
 } 

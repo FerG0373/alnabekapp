@@ -15,14 +15,14 @@ class AddShawarma extends StatefulWidget {
 class _AddShawarmaState extends State<AddShawarma> {
 
   // Instancia del controlador para manejar la lógica de agregar un Shawarma.
-  late final AddShawarmaController _controller;
+  late final AddShawarmaController _controladores;
 
   // Inicialización del controlador en el método initState.
   @override
   void initState() {
     super.initState();
     // Llamada al constructor del controlador con los controladores de texto y el tipo seleccionado.
-    _controller = AddShawarmaController(
+    _controladores = AddShawarmaController(
       nombreControlador: TextEditingController(),
       descripcionControlador: TextEditingController(),
       precioControlador: TextEditingController(),
@@ -36,14 +36,14 @@ class _AddShawarmaState extends State<AddShawarma> {
   }
 
   Future<void> guardarShawarma() async{
-    final error = _controller.validarCampos();
+    final error = _controladores.validarCampos();
     if(error != null) {
       _mostrarMensaje(error);
       return; // Si hay un error de validación, muestra el mensaje y no continúa.
     }
 
     try {
-      final shawarmaCreado = await _controller.guardarShawarma();
+      final shawarmaCreado = await _controladores.guardarShawarma();
       if(shawarmaCreado) {
         _mostrarMensaje('Shawarma agregado con éxito.');
         if(mounted) Navigator.of(context).pop(); // Cierra la pantalla actual si el widget sigue montado.  
@@ -65,17 +65,17 @@ class _AddShawarmaState extends State<AddShawarma> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AppTextFields.insertarTextFormField(40, "Nombre", _controller.nombreControlador),
+              AppTextFields.insertarTextFormField(40, "Nombre", _controladores.nombreControlador),
               const SizedBox(height: 20),
-              AppTextFields.insertarTextFormField(100, "Descripción", _controller.descripcionControlador),
+              AppTextFields.insertarTextFormField(100, "Descripción", _controladores.descripcionControlador),
               const SizedBox(height: 20),
-              AppTextFields.insertarTextFormField(40, "Precio", _controller.precioControlador, keyboardType: TextInputType.number),
+              AppTextFields.insertarTextFormField(40, "Precio", _controladores.precioControlador, keyboardType: TextInputType.number),
               const SizedBox(height: 20),
               AppDropDown.insertarDropDown(['Carne', 'Pollo', 'Mixto', 'Vegetariano', 'Al Nabek', 'Al plato'],
-                selectedValue: _controller.tipoSeleccionado,
+                selectedValue: _controladores.tipoSeleccionado,
                 onChanged: (String? nuevoValor) {
                   setState(() {
-                    _controller.tipoSeleccionado = nuevoValor;
+                    _controladores.tipoSeleccionado = nuevoValor;
                   });
                 }
               ),

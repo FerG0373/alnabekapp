@@ -1,6 +1,7 @@
 import 'package:alnabekapp/components/appbar.dart';
 import 'package:alnabekapp/components/button.dart';
 import 'package:alnabekapp/components/imagecard.dart';
+import 'package:alnabekapp/controllers/del_shawarma_controller.dart';
 import 'package:alnabekapp/models/shawarma.dart';
 import 'package:alnabekapp/res/app_imagespath.dart';
 import 'package:alnabekapp/screens/edit_shawarma.dart';
@@ -15,18 +16,26 @@ class ShawarmaScreen extends StatefulWidget {
 }
 
 class _ShawarmaScreenState extends State<ShawarmaScreen> {
-  late Future<List<Shawarma>> _shawarmasFuture;
+  late Future<List<Shawarma>> _listaShawarmasFuture;
+  final DeleteShawarmaController _deleteControlador = DeleteShawarmaController();
 
   @override
   void initState() {
     super.initState();
-    _shawarmasFuture = ShawarmaService().getShawarmas();
+    _listaShawarmasFuture = ShawarmaService().getShawarmas();
   }
 
-  Future<void> _refreshShawarmas() async {
+  Future<void> _recargarListaShawarmas() async {
     setState(() {
-      _shawarmasFuture = ShawarmaService().getShawarmas();
+      _listaShawarmasFuture = ShawarmaService().getShawarmas();
     });
+  }
+
+  // Método para mostrar mensajes.
+  void _mostrarMensaje(String mensaje) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(mensaje)),
+    );
   }
 
   @override
@@ -45,7 +54,7 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
         // Listado de Shawarmas.
         Expanded(
           child: FutureBuilder<List<Shawarma>>(
-          future: _shawarmasFuture,
+          future: _listaShawarmasFuture,
           builder: (context, snapshot) {
             if(snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
@@ -56,7 +65,7 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
             } else {
               return RefreshIndicator(
                 onRefresh: () async {
-                  _refreshShawarmas();
+                  _recargarListaShawarmas();
                 },
                 child: ListView.builder(
                   padding: EdgeInsets.all(10),
@@ -81,14 +90,40 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
                                     ),
                                   ).then((_) {
                                     // Refresca la lista al regresar de la pantalla de edición.
-                                    _refreshShawarmas();
+                                    _recargarListaShawarmas();
                                   });
                             },
                           ),
                           IconButton(
                             icon: Icon(Icons.delete, color: Colors.red),
-                            onPressed: () {
-                              
+                            onPressed: () async {
+                              final confirmar = await showDialog<bool>(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text('Confirmar eliminación'),
+                                  content: Text('¿Estás seguro de que deseas eliminar este elemento?'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () => Navigator.of(context).pop(false),
+                                      child: Text('Cancelar'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () => Navigator.of(context).pop(true),
+                                      child: Text('Eliminar', style: TextStyle(color: Colors.red)),
+                                    ),
+                                  ],
+                                ),
+                              );
+
+                              if (confirmar == true) {
+                                final eliminado = await _deleteControlador.eliminarShawarma(shawarma.id);
+                                if (eliminado) {
+                                  _mostrarMensaje('Shawarma eliminado con éxito');
+                                  _recargarListaShawarmas();
+                                } else {
+                                  _mostrarMensaje('Error al eliminar el shawarma');
+                                }
+                              }
                             },
                           ),
                         ],

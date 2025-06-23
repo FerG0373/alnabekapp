@@ -21,7 +21,7 @@ class _EditShawarmaState extends State<EditShawarma> {
   @override
   void initState() {
     super.initState();
-    // Inicializa los controladores para cargar los datos originales.
+    // Llamada al constructor del controlador con los controladores de texto y el tipo seleccionado.
     _controladores = EditShawarmaController(
       nombreControlador: TextEditingController(),
       descripcionControlador: TextEditingController(),
@@ -45,7 +45,7 @@ class _EditShawarmaState extends State<EditShawarma> {
       _mostrarMensaje('Shawarma actualizado con éxito.');
       if (mounted) Navigator.of(context).pop(); // Regresa a la pantalla anterior
     } else {
-      _mostrarMensaje('No se realizaron cambios.');
+      _mostrarMensaje('NO se realizaron cambios.');
     }
   }
 
@@ -65,8 +65,7 @@ class _EditShawarmaState extends State<EditShawarma> {
               const SizedBox(height: 20),
               AppTextFields.insertarTextFormField(40, "Precio", _controladores.precioControlador, keyboardType: TextInputType.number),
               const SizedBox(height: 20),
-              AppDropDown.insertarDropDown(
-                ['Carne', 'Pollo', 'Mixto', 'Vegetariano', 'Al Nabek', 'Al plato'],
+              AppDropDown.insertarDropDown(['Carne', 'Pollo', 'Mixto', 'Vegetariano', 'Al Nabek', 'Al plato'],
                 selectedValue: _controladores.tipoSeleccionado,
                 onChanged: (String? nuevoValor) {
                   setState(() {
