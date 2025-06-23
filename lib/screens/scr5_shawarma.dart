@@ -76,7 +76,7 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
                       title: Text(shawarma.nombre),
                       subtitle: Text('Precio: \$${shawarma.precio}'),
                       trailing: Row(
-                        mainAxisSize: MainAxisSize.min, // Esto asegura que la fila ocupe solo el espacio necesario.
+                        mainAxisSize: MainAxisSize.min,  // Esto asegura que la fila ocupe solo el espacio necesario.
                         children: [
                           IconButton(
                             icon: Icon(Icons.edit, color: Colors.blue),
@@ -89,8 +89,7 @@ class _ShawarmaScreenState extends State<ShawarmaScreen> {
                                       ),
                                     ),
                                   ).then((_) {
-                                    // Refresca la lista al regresar de la pantalla de edición.
-                                    _recargarListaShawarmas();
+                                    _recargarListaShawarmas();  // Refresca la lista al regresar de la pantalla de edición.
                                   });
                             },
                           ),

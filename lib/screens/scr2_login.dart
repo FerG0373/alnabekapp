@@ -18,6 +18,29 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController userControlador = TextEditingController();
   final TextEditingController passwordControlador = TextEditingController();
 
+  // Usuarios válidos.
+  final Map<String, String> usuariosValidos = {
+    'Diego': '1234',
+    'Fernando': '1234',
+    'Gustavo': '1234',
+  };
+
+  // Método para validar credenciales.
+  void _iniciarSesion(BuildContext context) {
+    final usuario = userControlador.text.trim();
+    final password = passwordControlador.text.trim();
+
+    if (usuariosValidos.containsKey(usuario) && usuariosValidos[usuario] == password) {
+      // Credenciales válidas.
+      Navigator.pushReplacementNamed(context, '/home'); // Navega a la pantalla principal.
+    } else {
+      // Credenciales inválidas.
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Usuario o contraseña incorrectos')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   // Botón Iniciar Sesión.
-                  AppButton.insertarBotonLogin(context, userControlador),
+                  AppButton.insertarBotonLogin(context, () => _iniciarSesion(context),),
                 ],
               ),
             ),
