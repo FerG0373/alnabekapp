@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (usuariosValidos.containsKey(usuario) && usuariosValidos[usuario] == password) {
       // Credenciales válidas.
-      Navigator.pushReplacementNamed(context, '/home'); // Navega a la pantalla principal.
+      Navigator.pushReplacementNamed(context, '/home', arguments: usuario,); // Navega a la pantalla principal.
     } else {
       // Credenciales inválidas.
       ScaffoldMessenger.of(context).showSnackBar(
