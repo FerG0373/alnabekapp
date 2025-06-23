@@ -34,26 +34,26 @@ class AppButton {
   // Método para el botón Iniciar Sesión.
   static Widget insertarBotonLogin(
     BuildContext context,
-    VoidCallback onPressed,  // Recibe la función que ejecuta la validación.
-  ) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 50, bottom: 10),
-      child: SizedBox(
-        width: AppScreenSize.getAverage(context) * 0.30,
-        height: AppScreenSize.getAverage(context) * 0.06,
-        child: ElevatedButton(
-          onPressed: onPressed,
-          child: Text(
-            "Iniciar Sesión",
-            style: TextStyle(
-              fontSize: AppScreenSize.getAverage(context) * 0.025,
-              color: AppColors.titleText,
-              fontWeight: FontWeight.bold,
+    VoidCallback iniciarSesion,  // Recibe la función callback que ejecuta la validación.
+    ) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 50, bottom: 10),
+        child: SizedBox(
+          width: AppScreenSize.getAverage(context) * 0.30,
+          height: AppScreenSize.getAverage(context) * 0.06,
+          child: ElevatedButton(
+            onPressed: iniciarSesion,
+            child: Text(
+              "Iniciar Sesión",
+              style: TextStyle(
+                fontSize: AppScreenSize.getAverage(context) * 0.025,
+                color: AppColors.titleText,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
-      ),
-    );
+      );
     }
 
 

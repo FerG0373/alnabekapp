@@ -16,8 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
 
     // ?? devuelve el valor de la izquierda si no es null, sino, devuelve el de la derecha.
-    String datorecibido = ModalRoute.of(context)?.settings.arguments as String? ?? 'Usuario';
-    String saludo = '¡Bienvenido $datorecibido!';
+    String datoRecibido = ModalRoute.of(context)?.settings.arguments as String? ?? 'Usuario';
+    String saludo = '¡Bienvenido $datoRecibido!';
     // Espacio entre tarjetas
     SizedBox espacio = SizedBox(height: AppScreenSize.getHeight(context) * 0.006);
 
@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 // Entrada.
-                AppImageCards.insertarItem(context, '/entrada', AppImages.entrada, 'Entrada'),
+                AppImageCards.insertarItem(context, '', AppImages.entrada, 'Entrada'),
                 // Shawarma.
                 AppImageCards.insertarItem(context, '/shawarma', AppImages.shawarma, 'Shawarma'),                
               ]
